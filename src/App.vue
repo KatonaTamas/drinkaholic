@@ -1,30 +1,51 @@
 <template>
-  <div id="nav">
+  <!--<div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  </div>-->
+  <Header title="Drinkaholic"/>
+    <router-view/>
 </template>
 
+<script>
+
+import Header from './components/Header';
+
+window.axios = require('axios');
+
+export default { 
+  name: 'App',
+  components: {
+    Header
+  },
+  data() {
+    return {
+      beer: {}
+    }
+  }
+}
+</script>
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 1rem;
+  color: #2b2e4a;
 }
 
-#nav {
-  padding: 30px;
-}
+  .result_container {
+    width: 100%;
+    height: auto;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  .beer-card_container {
+    padding: 1.7rem 0;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  
 </style>
+
